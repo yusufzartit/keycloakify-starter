@@ -1,5 +1,3 @@
-// Copy pasted from: https://github.com/InseeFrLab/keycloakify/blob/main/src/login/Template.tsx
-
 import { useState, useEffect } from "react";
 import { assert } from "keycloakify/tools/assert";
 import { clsx } from "keycloakify/tools/clsx";
@@ -8,7 +6,6 @@ import { type TemplateProps } from "keycloakify/login/TemplateProps";
 import { useGetClassName } from "keycloakify/login/lib/useGetClassName";
 import type { KcContext } from "./kcContext";
 import type { I18n } from "./i18n";
-import keycloakifyLogoPngUrl from "./assets/keycloakify-logo.png";
 
 export default function Template(props: TemplateProps<KcContext, I18n>) {
     const {
@@ -58,19 +55,12 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
     return (
         <div className={getClassName("kcLoginClass")}>
             <div id="kc-header" className={getClassName("kcHeaderClass")}>
-                <div 
-                    id="kc-header-wrapper" 
+                <div
+                    id="kc-header-wrapper"
                     className={getClassName("kcHeaderWrapperClass")}
                     style={{ "fontFamily": '"Work Sans"' }}
                 >
-                    {/* 
-                        Here we are referencing the `keycloakify-logo.png` in the `public` directory.  
-                        When possible don't use this approach, instead ...
-                    */}
-                    <img src={`${import.meta.env.BASE_URL}keycloakify-logo.png`} alt="Keycloakify logo" width={50} />
-                    {msg("loginTitleHtml", realm.displayNameHtml)}!!!
-                    {/* ...rely on the bundler to import your assets, it's more efficient */}
-                    <img src={keycloakifyLogoPngUrl} alt="Keycloakify logo" width={50} />
+                    <h1 style={{color: 'red'}}>{msg("loginTitleHtml", realm.displayNameHtml)}</h1>
                 </div>
             </div>
 
