@@ -20,49 +20,51 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
     return (
         <Template {...{ kcContext, i18n, doUseDefaultCss, classes }} headerNode={msg("registerTitle")}>
             <form id="kc-register-form" className={getClassName("kcFormClass")} action={url.registrationAction} method="post">
-                <div
-                    className={clsx(
-                        getClassName("kcFormGroupClass"),
-                        messagesPerField.printIfExists("firstName", getClassName("kcFormGroupErrorClass"))
-                    )}
-                >
-                    <div className={getClassName("kcLabelWrapperClass")}>
-                        <label htmlFor="firstName" className={getClassName("kcLabelClass")}>
-                            {msg("firstName")}
-                        </label>
-                    </div>
-                    <div className={getClassName("kcInputWrapperClass")}>
-                        <input
-                            type="text"
-                            id="firstName"
-                            className={getClassName("kcInputClass")}
-                            name="firstName"
-                            defaultValue={register.formData.firstName ?? ""}
-                        />
-                    </div>
-                </div>
 
-                <div
-                    className={clsx(
-                        getClassName("kcFormGroupClass"),
-                        messagesPerField.printIfExists("lastName", getClassName("kcFormGroupErrorClass"))
-                    )}
-                >
-                    <div className={getClassName("kcLabelWrapperClass")}>
-                        <label htmlFor="lastName" className={getClassName("kcLabelClass")}>
-                            {msg("lastName")}
-                        </label>
-                    </div>
-                    <div className={getClassName("kcInputWrapperClass")}>
-                        <input
-                            type="text"
-                            id="lastName"
-                            className={getClassName("kcInputClass")}
-                            name="lastName"
-                            defaultValue={register.formData.lastName ?? ""}
-                        />
-                    </div>
-                </div>
+                {/* This section represents the area where the "First Name" and "Last Name" input fields are present in the registration form. However, it is currently unused, so it has been commented out. */}
+                {/*<div*/}
+                {/*    className={clsx(*/}
+                {/*        getClassName("kcFormGroupClass"),*/}
+                {/*        messagesPerField.printIfExists("firstName", getClassName("kcFormGroupErrorClass"))*/}
+                {/*    )}*/}
+                {/*>*/}
+                {/*    <div className={getClassName("kcLabelWrapperClass")}>*/}
+                {/*        <label htmlFor="firstName" className={getClassName("kcLabelClass")}>*/}
+                {/*            {msg("firstName")}*/}
+                {/*        </label>*/}
+                {/*    </div>*/}
+                {/*    <div className={getClassName("kcInputWrapperClass")}>*/}
+                {/*        <input*/}
+                {/*            type="text"*/}
+                {/*            id="firstName"*/}
+                {/*            className={getClassName("kcInputClass")}*/}
+                {/*            name="firstName"*/}
+                {/*            defaultValue={register.formData.firstName ?? ""}*/}
+                {/*        />*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+                {/*<div*/}
+                {/*    className={clsx(*/}
+                {/*        getClassName("kcFormGroupClass"),*/}
+                {/*        messagesPerField.printIfExists("lastName", getClassName("kcFormGroupErrorClass"))*/}
+                {/*    )}*/}
+                {/*>*/}
+                {/*    <div className={getClassName("kcLabelWrapperClass")}>*/}
+                {/*        <label htmlFor="lastName" className={getClassName("kcLabelClass")}>*/}
+                {/*            {msg("lastName")}*/}
+                {/*        </label>*/}
+                {/*    </div>*/}
+                {/*    <div className={getClassName("kcInputWrapperClass")}>*/}
+                {/*        <input*/}
+                {/*            type="text"*/}
+                {/*            id="lastName"*/}
+                {/*            className={getClassName("kcInputClass")}*/}
+                {/*            name="lastName"*/}
+                {/*            defaultValue={register.formData.lastName ?? ""}*/}
+                {/*        />*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 <div
                     className={clsx(getClassName("kcFormGroupClass"), messagesPerField.printIfExists("email", getClassName("kcFormGroupErrorClass")))}
