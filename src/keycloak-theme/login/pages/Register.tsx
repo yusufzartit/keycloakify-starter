@@ -4,9 +4,11 @@ import type { PageProps } from "keycloakify/login/pages/PageProps";
 import { useGetClassName } from "keycloakify/login/lib/useGetClassName";
 import type { KcContext } from "../kcContext";
 import type { I18n } from "../i18n";
+import {useState, ChangeEvent} from 'react';
 
 export default function Register(props: PageProps<Extract<KcContext, { pageId: "register.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
+    const [userRole, setUserRole] = useState('CUSTOMER');
 
     const { getClassName } = useGetClassName({
         doUseDefaultCss,
@@ -14,6 +16,10 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
     });
 
     const { url, messagesPerField, register, realm, passwordRequired, recaptchaRequired, recaptchaSiteKey } = kcContext;
+
+    const handleUserRoleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        setUserRole(e.target.value);
+    };
 
     const { msg, msgStr } = i18n;
 
@@ -109,6 +115,25 @@ export default function Register(props: PageProps<Extract<KcContext, { pageId: "
                         </div>
                     </div>
                 )}
+                <div className={getClassName("kcFormGroupClass")}>
+                    <div className={getClassName("kcLabelWrapperClass")}>
+                        <label htmlFor="user.attributes.role" className={getClassName("kcLabelClass")}>
+                            {msg("userRole")}
+                        </label>
+                    </div>
+                    <div className={getClassName("kcInputWrapperClass")}>
+                        <select
+                            id="user.attributes.role"
+                            className={getClassName("kcInputClass")}
+                            name="user.attributes.role"
+                            value={userRole}
+                            onChange={handleUserRoleChange}
+                        >
+                            <option value="COMPANY">{msg("company")}</option>
+                            <option value="CUSTOMER">{msg("customer")}</option>
+                        </select>
+                    </div>
+                </div>
                 {passwordRequired && (
                     <>
                         <div
